@@ -235,19 +235,11 @@ export default function HomeMain({ openFaq, setOpenFaq, onConsult, onAnon, onCha
           <div className="space-y-6">
             <h2 className="text-3xl font-bold" style={{ color: "var(--text-primary)" }}>О центре</h2>
             <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-              Кризисный центр «Безопасная среда» создан для оказания комплексной помощи женщинам и детям, столкнувшимся с домашним насилием, эмоциональным давлением и кризисными жизненными ситуациями.
+              Кризисный центр «Безопасная среда» создан для оказания комплексной помощи женщинам и детям, столкнувшимся с домашним насилием, эмоциональным давлением.
             </p>
             <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-              Наша команда специалистов — психологи, юристы, социальные работники — работает в режиме 24/7, обеспечивая полную конфиденциальность и бесплатную помощь.
+              Наша команда специалистов — психологи, юристы, волонтеры и консультанты — работает в режиме 24/7, обеспечивая полную конфиденциальность и бесплатную помощь.
             </p>
-            <div className="grid grid-cols-3 gap-4 pt-2">
-              {[{ num: "5+", label: "лет работы" }, { num: "2400+", label: "семей помогли" }, { num: "12", label: "специалистов" }].map((s) => (
-                <div key={s.label} className="text-center p-4 rounded-2xl" style={{ background: "var(--card-bg)", border: "1px solid var(--border-soft)" }}>
-                  <div className="text-2xl font-black" style={{ background: "var(--gradient-brand)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{s.num}</div>
-                  <div className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>{s.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
