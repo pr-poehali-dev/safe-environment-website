@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import Psychology from "./Psychology";
+import Legal from "./Legal";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/21457f32-ba4e-4f06-a1c9-c30437d21dd3/files/30eb23bb-f49a-4daf-ac9b-98e0ec9fddc1.jpg";
 const HANDS_IMAGE = "https://cdn.poehali.dev/projects/21457f32-ba4e-4f06-a1c9-c30437d21dd3/files/f431f986-6130-43ac-864e-e47bf132e0eb.jpg";
@@ -45,7 +46,7 @@ const faqs = [
 ];
 
 export default function Index() {
-  const [page, setPage] = useState<"home" | "psychology">("home");
+  const [page, setPage] = useState<"home" | "psychology" | "legal">("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [anonOpen, setAnonOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
@@ -69,6 +70,16 @@ export default function Index() {
   if (page === "psychology") {
     return (
       <Psychology
+        onBack={() => setPage("home")}
+        onAnon={() => { setPage("home"); setTimeout(() => setAnonOpen(true), 100); }}
+        onConsult={() => { setPage("home"); setTimeout(() => setConsultOpen(true), 100); }}
+      />
+    );
+  }
+
+  if (page === "legal") {
+    return (
+      <Legal
         onBack={() => setPage("home")}
         onAnon={() => { setPage("home"); setTimeout(() => setAnonOpen(true), 100); }}
         onConsult={() => { setPage("home"); setTimeout(() => setConsultOpen(true), 100); }}
@@ -302,7 +313,10 @@ export default function Index() {
                 key={s.title}
                 className="group p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
                 style={{ background: "var(--card-bg)", border: "1px solid var(--border-soft)" }}
-                onClick={() => { if (s.title === "Психологическая помощь") setPage("psychology"); }}
+                onClick={() => {
+                  if (s.title === "Психологическая помощь") setPage("psychology");
+                  if (s.title === "Юридическая помощь") setPage("legal");
+                }}
               >
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110" style={{ background: "var(--badge-bg)" }}>
                   <Icon name={s.icon} size={22} style={{ color: "var(--color-brand)" }} fallback="Circle" />
